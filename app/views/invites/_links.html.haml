@@ -1,0 +1,6 @@
+%span{:id => "links_#{invite.id}" }
+  - if invite.unaccepted?
+    = link_to "Accept!", url_for(:controller => :invites, :action => :accept, :id => invite), :class => "change_state_link" 
+    = link_to "Refuse!", url_for(:controller => :invites, :action => :refuse, :id => invite), :class => "change_state_link" 
+  - else
+    = invite.current_state.capitalize

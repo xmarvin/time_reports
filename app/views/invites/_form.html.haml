@@ -1,0 +1,13 @@
+- form_for [@project, @invite] do |f|
+  - unless (f.error_messages.empty?)
+    .message.errormsg
+      %p
+        = f.error_messages
+  %p
+    = f.label :email
+    %br
+    = f.text_field :email, :class => :text
+  %p
+    = f.submit :class => "submit long"
+:javascript
+  $("form").submitWithAjax();

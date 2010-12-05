@@ -1,0 +1,2 @@
+$('#projects').append('<%= escape_javascript(render @project)%>');
+$('#new_project').replaceWith('<%= @project = Project.new and escape_javascript(render :partial => 'form')%>');

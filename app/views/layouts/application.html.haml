@@ -1,0 +1,54 @@
+!!! Strict
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
+    = stylesheet_link_tag 'style', 'facebox', 'visualize', 'date_input','form'
+    = javascript_include_tag  'jquery/jquery.min', 'rails', 'application', 'resources', 'facebox', 'jquery/jquery.tools.min', 'jquery/jquery.img.preload','jquery/jquery.select_skin', 'jquery/jquery.wysiwyg', 'jquery/jquery.filestyle.mini', 'jquery/jquery.pngfix','jquery/jquery.date_input.pack', 'jquery/jquery.visualize', 'custom'
+    <!--[if IE]>
+    %meta{:content => "IE=7", "http-equiv" => "X-UA-Compatible" }
+    = javascript_include_tag 'excanvas.js'
+    <![endif]-->
+    <!--[if IE 8]>
+    = stylesheet_link_tag 'ie.css'
+    <![endif]-->
+    = csrf_meta_tag
+    = yield :local_javascript
+    = yield :head
+  %body
+    .wrapper
+      #header
+        .hdrl
+        .hdrr
+        %ul#nav
+          - if current_user
+            %li
+              = link_to "Home", root_path
+            %li
+              = link_to "Projects", projects_path
+          - else
+            %li
+              = link_to "Sign up", signup_path
+            %li
+              = link_to 'Sign In', login_path
+        %p.user
+          - if current_user
+            = "Signed in as"
+            = link_to current_user.name, edit_account_url
+            Not you?
+            = link_to "Sign out", logout_path
+      #main.block
+        .block_head
+          .bheadl
+          .bheadr
+          %h2= yield(:page_name)
+          = yield(:page_head)
+        .block_content.main
+          - if flash[:notice]
+            .message.info
+              = flash[:notice]
+          = yield
+        .bendl.main
+        .bendr
+      #footer
+        %p.right
+          TimeReports © 2010 All Rights Reserved

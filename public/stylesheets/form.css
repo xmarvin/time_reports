@@ -1,0 +1,12 @@
+.fieldWithErrors input, .fieldWithErrors select, .fieldWithErrors .cmf-skinned-select, .fieldWithErrors textarea {
+  border-color: red !important;
+}
+
+.fieldWithErrors label {
+  font-style: italic;
+}
+
+#errorExplanation p {
+  color: #333;
+  float: none;
+}

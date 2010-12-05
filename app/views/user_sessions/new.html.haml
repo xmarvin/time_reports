@@ -1,0 +1,2 @@
+- content_for :page_name, 'Login'
+= render :partial => 'user_sessions/new', :locals => { :action_url => url_for(@user_session) }

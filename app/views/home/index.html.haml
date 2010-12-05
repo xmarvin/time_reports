@@ -1,0 +1,5 @@
+- content_for :page_name, "Your dashboard"
+%h1 Projects
+= render :partial => 'project', :collection => @projects
+%h1 Invites
+= render :partial => 'invites/invite', :collection => @invites

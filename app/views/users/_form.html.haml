@@ -1,0 +1,23 @@
+= form_for @user do |f|
+  - unless (f.error_messages.empty?)
+    .message.errormsg
+      %p
+        = f.error_messages
+  %p
+    = f.label :email
+    %br
+    = f.text_field :email, :class => :text
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name, :class => :text
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password, :class => :text
+  %p
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation, :class => :text
+  %p
+    = f.submit "Submit", :class => "submit"

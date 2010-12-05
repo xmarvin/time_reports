@@ -1,0 +1,6 @@
+%tr{:id => "project_#{project.id}"}
+  %td= project.name
+  %td= project.description.html_safe
+  %td= link_to 'show', project
+  %td= link_to 'edit', edit_project_path(project.id), :class => :change_state_link
+  %td= link_to_function('delete', "destroy_for(['projects', #{project.id}])")

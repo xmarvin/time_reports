@@ -1,0 +1,13 @@
+= stylesheet_link_tag 'jquery.wysiwyg','wysiwyg'
+- content_for :page_name, 'Projects'
+%table#projects
+  %tbody
+  - if @projects.empty?
+    .message.info
+      There are no projects you participate. Create own project
+  - else 
+    %tr
+      %th= "Name"
+      %th= "Description"
+    = render @projects
+= render :partial => 'form'

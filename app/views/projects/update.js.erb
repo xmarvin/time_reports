@@ -1,0 +1,2 @@
+$('#project_<%= @project.id %>').replaceWith('<%= ej(render @project)%>');
+$('form').replaceWith('<%= @project = Project.new and ej(render :partial => 'form')%>');

@@ -1,0 +1,16 @@
+- content_for :page_name, 'Project description'
+%p
+  Name:
+  %br	
+  = @project.name
+%p
+  Description:
+  %br	
+  = @project.description.html_safe
+%br
+%h1 User for on it:
+= render :partial => 'user', :collection => @project.users
+%br
+%h1 Invite friend:
+%br
+= render :partial => 'invites/form'
