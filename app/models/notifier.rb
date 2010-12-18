@@ -28,7 +28,7 @@ class Notifier < ActionMailer::Base
 
   def invite_was_sended(invite)  
     subject       "You get invite"  
-    from          "noreply@time_reports.heroku.com"
+    from          "TimeReports"
     recipients    invite.email  
     sent_on       Time.now
     body :invite => invite
