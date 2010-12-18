@@ -6,5 +6,5 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-user = User.create(:email => 'user@mailinator.com', :name => 'Spy', :password => 'qweqwe', :password_confirmation => 'qweqwe', :active => true)
-user.projects.create(:name => "Time Manager", :description => "It's project for fun", :owner => user)
+user = User.create(:email => 'spy-a@ya.ru', :name => 'Alexey Kisel', :password => '123123', :password_confirmation => '123123', :active => true)
+user.projects.create(:name => "Time Manager", :description => "It's project for track work time and make reports based on it", :owner => user)
