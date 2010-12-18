@@ -8,6 +8,7 @@ class InvitesController < ApplicationController
   end
 
   def accept
+    @project = resource.project
     resource.accept
     resource.save
   end

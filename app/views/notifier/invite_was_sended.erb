@@ -1,0 +1,5 @@
+Hello!
+
+<%= link_to(@invite.project.owner.name, user_url(@invite.project.owner), :only_path => false) %> invite you to <%= link_to(@invite.project.name, project_url(@invite.project)) %> 
+
+<%= link_to 'link', root_url %>

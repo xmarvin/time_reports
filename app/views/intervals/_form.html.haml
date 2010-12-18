@@ -1,0 +1,19 @@
+- form_for [@project, @interval] do |f|
+  - unless (f.error_messages.empty?)
+    .message.errormsg
+      %p
+        = f.error_messages
+  %p
+    = f.text_field :start, :value => only_time(@interval.start), :class => "time text"
+    = f.text_field :finish, :value => only_time(@interval.finish), :class => "time text"
+    = f.text_field :note, :class => "text"
+  %p
+    = f.submit :class => "submit long"
+    Select date
+    - puts "-"*100
+    - p @date
+    - p @interval.date
+    = f.text_field :date, :value => @date || @interval.date.to_date, :class => "date text", :href => date_project_intervals_url(@project)
+:javascript
+  $("form").submitWithAjax();
+  apply_time_inputs(); 

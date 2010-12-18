@@ -8,9 +8,14 @@
   %br	
   = @project.description.html_safe
 %br
-%h1 User for on it:
-= render :partial => 'user', :collection => @project.users
-%br
-%h1 Invite friend:
-%br
-= render :partial => 'invites/form'
+.owner
+  %h1 Owner
+  = render :partial => 'user', :locals => {:user => @project.owner}
+.participants
+  %h1 Participants:
+  = render :partial => 'user', :collection => @project.users
+- if @project.owner.eql? current_user
+  %br
+  %h1 Invite friend:
+  %br
+  = render :partial => 'invites/form'

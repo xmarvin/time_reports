@@ -23,7 +23,7 @@
           .bheadr
           %ul
             %li
-              %a{:href => url_for(signup_path)} signup
+              %a{:href => url_for(root_path)} back to the site
           %h2= yield(:page_name) || controller.controller_name.humanize
           = yield(:page_head)
         .block_content.main

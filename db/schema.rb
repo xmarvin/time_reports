@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(:version => 20101205012328) do
     t.text     "note"
     t.time     "start"
     t.time     "finish"
-    t.date     "date"
+    t.date     "date",       :default => '2010-12-05', :null => false
     t.integer  "project_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

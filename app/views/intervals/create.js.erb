@@ -1,0 +1,3 @@
+$('#intervals').append('<%= escape_javascript(render @interval)%>');
+$('form').replaceWith('<%= @interval = Interval.new and ej(render :partial => 'form')%>');
+$.getScript("<%= total_project_intervals_url(@interval.project) %>");

@@ -2,8 +2,6 @@
 
 one:
   email: MyString
-  active: false
 
 two:
   email: MyString
-  active: false

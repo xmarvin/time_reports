@@ -11,9 +11,21 @@ TimeManage::Application.routes.draw do
   match '/signup', :controller => 'users', :action => 'new'
   match '/accept/:id', :controller => 'invites', :action => 'accept', :as => :accept
   match '/refuse/:id', :controller => 'invites', :action => 'refuse', :as => :refuse
+
 	resources :user_sessions
+
 	resources :projects do
-		resources :time_sheets
+      member do
+				get 'report'
+			end
+	resources :intervals do
+
+			collection do
+				get 'date'
+				get 'total'
+			end
+		end
+		resources :time_sheets, :controller => :intervals
     resources :invites
 	end
 

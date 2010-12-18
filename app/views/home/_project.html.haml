@@ -1,2 +1,6 @@
-.project
-	= link_to project.name, project
+.project_box
+  = link_to project.name, project
+  %br
+  .project_links
+    = link_to "Time Sheet", project_time_sheets_path(project)
+    = link_to "Report", report_project_path(project)

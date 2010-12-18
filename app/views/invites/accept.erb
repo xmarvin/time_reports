@@ -1,1 +1,2 @@
 $("#links_<%= @invite.id %>").html("<%= ej(render :partial => 'links', :locals => {:invite => @invite}) %>");
+$("#projects").append("<%= ej(render :partial => 'home/project', :locals => {:project => @project}) %>");

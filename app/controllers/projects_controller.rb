@@ -3,7 +3,10 @@ class ProjectsController < ApplicationController
   respond_to :html, :js
   before_filter :build_resource, :only => :index
   before_filter :create_invite, :only => :show
- 
+
+  def report
+  end
+
   def create
     @project = Project.create(params[:project])
     @project.users << current_user
@@ -22,6 +25,6 @@ class ProjectsController < ApplicationController
   end
 
   def collection
-    @projects = current_user.projects if current_user
+    @projects = current_user.own_projects if current_user
   end
 end

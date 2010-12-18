@@ -1,0 +1,7 @@
+%tr{:id => dom_id(interval)}
+  %td= only_time(interval.start)
+  %td= only_time(interval.finish)
+  %td= time_from_sec interval.delta
+  %td= interval.note
+  %td= link_to 'edit', edit_project_time_sheet_path(@project, interval.id), :class => :change_state_link
+  %td= link_to_function('delete', "destroy_for(['projects',#{interval.project.id} ,'intervals', #{interval.id}])")

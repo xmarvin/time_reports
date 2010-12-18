@@ -10,3 +10,26 @@
   color: #333;
   float: none;
 }
+
+input.time{
+	width: 55px !important;
+}
+input.date{
+	width: 100px !important;
+}
+
+.project_box{
+    background: url("/images/v3/backgrounds/gray_gradient.png") repeat-x scroll left bottom transparent;
+    border: 1px solid #CCCCCC;
+    color: #333333;
+    display: block;
+    font-weight: bold;
+    height: 90px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.project_box > a{
+  color: gray;
+}

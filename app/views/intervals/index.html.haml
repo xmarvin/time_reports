@@ -1,0 +1,6 @@
+- content_for :page_name, 'Time sheet'
+- content_for :head do
+  = javascript_include_tag 'time_sheets'
+#intervals_block
+  = render :partial => "intervals"
+= render :partial => 'form'

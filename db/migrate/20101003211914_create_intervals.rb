@@ -4,8 +4,9 @@ class CreateIntervals < ActiveRecord::Migration
       t.text :note
       t.time :start
       t.time :finish
-      t.date :date
+      t.date :date, :null => false
       t.references :project
+      t.references :user
       t.timestamps
     end
   end

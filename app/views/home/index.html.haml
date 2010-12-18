@@ -1,5 +1,14 @@
 - content_for :page_name, "Your dashboard"
-%h1 Projects
-= render :partial => 'project', :collection => @projects
-%h1 Invites
-= render :partial => 'invites/invite', :collection => @invites
+- unless current_user
+  %p
+    Hello, guest. Happy to you. You can use this site for tracking your working time with your friends on different projects and get reports. Sign up now!
+- else
+  #projects
+    = render :partial => 'project', :collection => @projects
+  %br
+  - unless @invites.empty?
+    .message.info
+      %p
+        You have new invites
+    %table  
+      = render :partial => 'invites/invite', :collection => @invites

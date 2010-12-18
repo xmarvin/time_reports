@@ -1,0 +1,9 @@
+%table#intervals
+  %tbody
+    %tr
+      %th= "Start"
+      %th= "Finish"
+      %th= "Delta"
+      %th= "Note"
+    = render :partial => "interval", :collection => @intervals
+= render :partial => "total"
