@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default :from => "donotreply@filerepository.heroku.com"
+  default :from => "TimeReports"
 
   def new_file
     mail(:to => "Spy-A@yandex.ru", :subject => "New File") do |format|
@@ -10,12 +10,10 @@ class Notifier < ActionMailer::Base
   end
 
   def activation_instructions(user)
-    subject       "Activation Instructions"
-    from          "noreply@time_reports.heroku.com"
-    recipients    user.email
-    sent_on       Time.now
-    body          :account_activation_url => activation_url(user.perishable_token)
-    content_type "text/html"
+    @account_activation_url => activation_url(user.perishable_token)
+    mail(:to => user.email, :subject => "Activation Instructions") do |format|
+      format.html
+		end  
   end
 
   def activation_confirmation(user)
