@@ -1,4 +1,14 @@
 class Notifier < ActionMailer::Base
+  default :from => "donotreply@filerepository.heroku.com"
+
+  def new_file
+    mail(:to => "Spy-A@yandex.ru", :subject => "New File") do |format|
+      format.text {
+        render :text => "Hello"
+      }
+    end
+  end
+
   def activation_instructions(user)
     subject       "Activation Instructions"
     from          "noreply@time_reports.heroku.com"
