@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default :from => "TimeReports"
+  default :from => "donotreply@timereports.heroku.com"
 
   def new_file
     mail(:to => "Spy-A@yandex.ru", :subject => "New File") do |format|
