@@ -10,7 +10,7 @@ class Notifier < ActionMailer::Base
   end
 
   def activation_instructions(user)
-    @account_activation_url => activation_url(user.perishable_token)
+    @account_activation_url = activation_url(user.perishable_token)
     mail(:to => user.email, :subject => "Activation Instructions") do |format|
       format.html
 		end  
