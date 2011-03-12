@@ -4,8 +4,7 @@ class ProjectsController < ApplicationController
   before_filter :build_resource, :only => :index
   before_filter :create_invite, :only => :show
 
-  def report
-  end
+
 
   def create
     @project = Project.create(params[:project])
@@ -20,8 +19,6 @@ class ProjectsController < ApplicationController
 
   def create_invite
     @invite = Invite.new
-    puts "9"*10
-    p @invite
   end
 
   def collection

@@ -12,10 +12,10 @@
 }
 
 input.time{
-	width: 55px !important;
+	width: 100px !important;
 }
 input.date{
-	width: 100px !important;
+	width: 140px !important;
 }
 
 .project_box{
@@ -32,4 +32,7 @@ input.date{
 
 .project_box > a{
   color: gray;
+}
+#total_time{
+  font-weight: bold;
 }

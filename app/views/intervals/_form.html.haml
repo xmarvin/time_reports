@@ -10,10 +10,7 @@
   %p
     = f.submit :class => "submit long"
     Select date
-    - puts "-"*100
-    - p @date
-    - p @interval.date
-    = f.text_field :date, :value => @date || @interval.date.to_date, :class => "date text", :href => date_project_intervals_url(@project)
+    = f.text_field :date, :value => @date || @interval.date.to_date, :class => "choose_date text", :href => date_project_intervals_url(@project)
 :javascript
   $("form").submitWithAjax();
-  apply_time_inputs(); 
+  apply_time_inputs();

@@ -1,5 +1,10 @@
 function apply_time_inputs(){
-  $(".date").datepicker({
+
+    $(".date").datepicker({
+   showOtherMonths: true, 
+    });
+
+  $(".choose_date").datepicker({
    showOtherMonths: true,
    onSelect: function(dateText, inst) { 
      console.log(dateText);

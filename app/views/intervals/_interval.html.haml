@@ -1,4 +1,5 @@
 %tr{:id => dom_id(interval)}
+  %td= interval.date
   %td= only_time(interval.start)
   %td= only_time(interval.finish)
   %td= time_from_sec interval.delta

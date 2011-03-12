@@ -1,0 +1,4 @@
+- content_for :page_name, 'Report'
+= render :partial => 'shared/select_date_interval'
+- if @intervals
+  = render :partial => 'intervals'

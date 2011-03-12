@@ -1,0 +1,11 @@
+- form_tag report_project_intervals_path(@project), :method => :get do
+  .select_user
+    = select_tag 'user_id', options_from_collection_for_select(@users, 'id', 'name')
+  %span
+    = text_field_tag :first_date, @first_date, :class => "date text", :placeholder => "Start from this date"
+  %span
+    &ndash;
+  %span
+    = text_field_tag :last_date, @last_date, :class => "date text", :placeholder => "End with this date"
+  %span
+    = submit_tag "Search", :class => :submit

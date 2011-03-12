@@ -15,14 +15,13 @@ TimeManage::Application.routes.draw do
 	resources :user_sessions
 
 	resources :projects do
-      member do
-				get 'report'
-			end
 	resources :intervals do
 
 			collection do
 				get 'date'
 				get 'total'
+				get 'timer'
+				get 'report'
 			end
 		end
 		resources :time_sheets, :controller => :intervals
