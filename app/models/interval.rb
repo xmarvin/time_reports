@@ -1,8 +1,8 @@
 class Interval < ActiveRecord::Base
   belongs_to :project
-  belongs_to :user
+  belongs_to :profile
 
-  scope :by_user, lambda {|user| where(:user_id => user.id)}
+  scope :by_user, lambda {|user| where(:profile_id => user.id)}
 
   validates_presence_of :date, :start, :finish, :note
   validate :time_valid?

@@ -8,13 +8,10 @@
   %br	
   = @project.description.html_safe
 %br
-.owner
-  %h1 Owner
-  = render :partial => 'user', :locals => {:user => @project.owner}
 .participants
   %h1 Participants:
-  = render :partial => 'user', :collection => @project.users
-- if @project.owner.eql? current_user
+  = render :partial => 'user', :collection => @project.profiles
+- if @project.owners.to_a.include? current_user
   %br
   %h1 Invite friend:
   %br

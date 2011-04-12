@@ -8,8 +8,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.create(params[:project])
-    @project.users << current_user
-    @project.owner = current_user
+    profile =  Profile.new(:user => current_user)
+    @project.users << profile
+    @project.owner = profile
     create! do |s, f|
       f.js { render :errors}
     end
@@ -22,6 +23,6 @@ class ProjectsController < ApplicationController
   end
 
   def collection
-    @projects = current_user.own_projects if current_user
+    @projects = current_user.all_projects if current_user
   end
 end

@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   acts_as_authentic
 
-  has_many :intervals
-  has_and_belongs_to_many :projects
-  has_many :own_projects, :class_name => 'Project', :foreign_key => "owner_id"
+  has_many :profiles
+ # has_many :intervals
+ # has_and_belongs_to_many :projects
+ # has_many :own_projects, :class_name => 'Project', :foreign_key => "owner_id"
 
   def active?
     active
@@ -15,8 +16,9 @@ class User < ActiveRecord::Base
   end
 
   def all_projects
-    (own_projects + projects).uniq
+    self.profiles.collect(&:project)
   end
+
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
     #Notifier.send_later(:deliver_password_reset_instructions, self)  

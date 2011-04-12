@@ -1,4 +1,6 @@
 TimeManage::Application.routes.draw do
+  get "profiles/index"
+
   root :to => 'home#index'
 
   match '/register/:activation_code', :controller => 'activations', :action => 'new', :as => :activation
@@ -26,6 +28,7 @@ TimeManage::Application.routes.draw do
 		end
 		resources :time_sheets, :controller => :intervals
     resources :invites
+    resources :profiles
 	end
 
 	resources :users

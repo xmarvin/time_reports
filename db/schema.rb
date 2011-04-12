@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101205012328) do
+ActiveRecord::Schema.define(:version => 20110410181720) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(:version => 20101205012328) do
     t.text     "note"
     t.time     "start"
     t.time     "finish"
-    t.date     "date",       :default => '2010-12-05', :null => false
+    t.date     "date",       :null => false
     t.integer  "project_id"
-    t.integer  "user_id"
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,6 +42,23 @@ ActiveRecord::Schema.define(:version => 20101205012328) do
     t.string   "email"
     t.string   "current_state"
     t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "positions", :force => true do |t|
+    t.string   "title"
+    t.integer  "project"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "position_id"
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "weekload"
+    t.boolean  "owner"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

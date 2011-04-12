@@ -22,7 +22,7 @@ class IntervalsController < ApplicationController
   end
 
   def report
-    @users = ([@project.owner] + @project.users).uniq
+    @users = @project.profiles
     m = Date.current.month
     y = Date.current.year
     if params[:first_date]
@@ -34,7 +34,7 @@ class IntervalsController < ApplicationController
     @last_date =  (params[:last_date] ? Time.parse(params[:last_date] ) : Date.new(y,m,-1)).to_date
     puts "*"*100
     if params[:user_id]
-      @user = User.find(params[:user_id])
+      @user = Profile.find(params[:user_id])
       puts @user.id
       @intervals = @project.intervals.by_user(@user).find :all,  :conditions => ['date >= ? AND date <= ?', @first_date, @last_date]
       @total_time = Interval.total_time(@intervals)
@@ -56,7 +56,7 @@ class IntervalsController < ApplicationController
   end
 
   def set_user
-    resource.user = current_user
+    resource.profile = @project.user_profile(current_user)
     resource.save
   end
 

@@ -6,7 +6,7 @@ class CreateIntervals < ActiveRecord::Migration
       t.time :finish
       t.date :date, :null => false
       t.references :project
-      t.references :user
+      t.references :profile
       t.timestamps
     end
   end
