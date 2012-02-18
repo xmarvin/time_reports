@@ -4,10 +4,14 @@ class IntervalsController < ApplicationController
   before_filter :build_resource, :only => [:index, :date, :total, :report]
   before_filter :collection, :only => [:index, :date, :total]
   before_filter :find_date, :only => [:create, :update]
-  after_filter :set_user, :only => :create
   respond_to :html, :js
 
   create! do |s, f|
+    s.js{
+       resource.profile = @project.user_profile(current_user)
+       resource.save
+       collection
+    }
     f.js { render :errors}
   end
 
@@ -35,9 +39,8 @@ class IntervalsController < ApplicationController
     puts "*"*100
     if params[:user_id]
       @user = Profile.find(params[:user_id])
-      puts @user.id
       @intervals = @project.intervals.by_user(@user).find :all,  :conditions => ['date >= ? AND date <= ?', @first_date, @last_date]
-      @total_time = Interval.total_time(@intervals)
+      set_total_time
     end
   end
   private
@@ -52,12 +55,11 @@ class IntervalsController < ApplicationController
   def collection
     find_date
     @intervals = @project.intervals.by_user(current_user).find_all_by_date(@date)
-    @total_time = Interval.total_time(@intervals)
+    set_total_time
   end
 
-  def set_user
-    resource.profile = @project.user_profile(current_user)
-    resource.save
+  def set_total_time
+    @total_time = Interval.total_time(@intervals)
   end
 
 end
